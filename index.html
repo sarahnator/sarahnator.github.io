@@ -1,34 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
-    <title>Sarahnator&#x27;s research blog</title>
-    <link href="/assets/css/style.min.css?v=518866c4c4" rel="stylesheet" type="text/css">
-    <link href="/favicon.png" rel="shortcut icon">
-    <meta name="description" content="I like robots &amp; this is where I write about them 🤖" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Sarah Etter&#x27;s research blog</title>
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=925cf51ead" />
+
+	<script>
+			var siteUrl = 'https://sarahnator.github.io';
+	</script>
+
+	<script>
+			var localTheme = localStorage.getItem('attila_theme');
+			switch (localTheme) {
+					case 'dark':
+							document.documentElement.classList.add('theme-dark');
+							break;
+					case 'light':
+							document.documentElement.classList.add('theme-light');
+							break;
+					default:
+							break;
+			}
+	</script>
+
+		<script>localStorage.setItem('attila_theme', 'dark');</script>
+		<style>.js-theme {display:none!important;}</style>
+
+
+			<style>
+				.theme-dark:root {
+				  --ghost-accent-color: #7a7a7a;
+				}
+				@media (prefers-color-scheme: dark) {
+				  html:not(.theme-light):root {
+				    --ghost-accent-color: #7a7a7a;
+				  }
+				}
+			</style>
+
+	<meta name="description" content="A robotics enthusiast&#x27;s outlet" />
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="canonical" href="http://localhost:2368/" />
+    <link rel="canonical" href="https://sarahnator.github.io/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Sarahnator&#x27;s research blog" />
+    <meta property="og:site_name" content="Sarah Etter&#x27;s research blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Sarahnator&#x27;s research blog" />
-    <meta property="og:description" content="I like robots &amp; this is where I write about them 🤖" />
-    <meta property="og:url" content="http://localhost:2368/" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1637775297458-7443ffd545b2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDcwfHxwc3ljaGVkZWxpYyUyMGJsYWNrfGVufDB8fHx8MTY1MzI2NTk2NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta property="og:title" content="Sarah Etter&#x27;s research blog" />
+    <meta property="og:description" content="A robotics enthusiast&#x27;s outlet" />
+    <meta property="og:url" content="https://sarahnator.github.io/" />
+    <meta property="og:image" content="https://sarahnator.github.io/content/images/2022/10/wallpaperflare.com_wallpaper-1.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/ghost" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sarahnator&#x27;s research blog" />
-    <meta name="twitter:description" content="I like robots &amp; this is where I write about them 🤖" />
-    <meta name="twitter:url" content="http://localhost:2368/" />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1637775297458-7443ffd545b2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDcwfHxwc3ljaGVkZWxpYyUyMGJsYWNrfGVufDB8fHx8MTY1MzI2NTk2NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta name="twitter:title" content="Sarah Etter&#x27;s research blog" />
+    <meta name="twitter:description" content="A robotics enthusiast&#x27;s outlet" />
+    <meta name="twitter:url" content="https://sarahnator.github.io/" />
+    <meta name="twitter:image" content="https://sarahnator.github.io/content/images/2022/10/wallpaperflare.com_wallpaper-1.jpg" />
     <meta name="twitter:site" content="@ghost" />
-    <meta property="og:image:width" content="2000" />
-    <meta property="og:image:height" content="3556" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="900" />
     
     <script type="application/ld+json">
 {
@@ -36,33 +71,33 @@
     "@type": "WebSite",
     "publisher": {
         "@type": "Organization",
-        "name": "Sarahnator&#x27;s research blog",
-        "url": "http://localhost:2368/",
+        "name": "Sarah Etter&#x27;s research blog",
+        "url": "https://sarahnator.github.io/",
         "logo": {
             "@type": "ImageObject",
-            "url": "http://localhost:2368/favicon.png",
+            "url": "https://sarahnator.github.io/favicon.png",
             "width": 60,
             "height": 60
         }
     },
-    "url": "http://localhost:2368/",
+    "url": "https://sarahnator.github.io/",
     "image": {
         "@type": "ImageObject",
-        "url": "https://images.unsplash.com/photo-1637775297458-7443ffd545b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDcwfHxwc3ljaGVkZWxpYyUyMGJsYWNrfGVufDB8fHx8MTY1MzI2NTk2NQ&ixlib=rb-1.2.1&q=80&w=2000",
-        "width": 2000,
-        "height": 3556
+        "url": "https://sarahnator.github.io/content/images/2022/10/wallpaperflare.com_wallpaper-1.jpg",
+        "width": 1440,
+        "height": 900
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://localhost:2368/"
+        "@id": "https://sarahnator.github.io/"
     },
-    "description": "I like robots &amp; this is where I write about them 🤖"
+    "description": "A robotics enthusiast&#x27;s outlet"
 }
     </script>
 
     <meta name="generator" content="Ghost 4.48" />
-    <link rel="alternate" type="application/rss+xml" title="Sarahnator&#x27;s research blog" href="http://localhost:2368/rss/" />
-    <script defer src="https://unpkg.com/@tryghost/portal@~1.22.0/umd/portal.min.js" data-ghost="http://localhost:2368/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+    <link rel="alternate" type="application/rss+xml" title="Sarah Etter&#x27;s research blog" href="https://sarahnator.github.io/rss/" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.22.0/umd/portal.min.js" data-ghost="https://sarahnator.github.io/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
 .gh-post-upgrade-cta {
     display: flex;
     flex-direction: column;
@@ -126,57 +161,152 @@
 .gh-post-upgrade-cta a.gh-btn:hover {
     opacity: 0.92;
 }</style>
-    <script defer src="/public/cards.min.js?v=518866c4c4"></script><style>:root {--ghost-accent-color: #232323;}</style>
-    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=518866c4c4">
-    <meta name="theme" content="Saga v2.1.3">
+    <script defer src="/public/cards.min.js?v=925cf51ead"></script><style>:root {--ghost-accent-color: #232323;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=925cf51ead">
 </head>
-<body class="index home-template">
-    <a href="#main" class="skip-link">Skip to main content</a>
-    <header role="banner" id="header" class="animated fadeIn header  --dark cover-image" style="background-image: url(https://images.unsplash.com/photo-1637775297458-7443ffd545b2?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDcwfHxwc3ljaGVkZWxpYyUyMGJsYWNrfGVufDB8fHx8MTY1MzI2NTk2NQ&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000);">
-    <section id="top-navigation" class="header--top"  aria-label="Top navigation">
-        <section aria-labelledby="blog-title">
-    <a id="blog-title" class="blog-title" href="http://localhost:2368">
-            Sarahnator&#x27;s research blog
-    </a>
-    
-</section>
-<nav class="primary-menu" aria-label="Primary menu"><ul>
-    <li class="nav-home nav-current"><a href="http://localhost:2368/"><span class="label">Home</span></a></li>
-    <li class="nav-about"><a href="http://localhost:2368/about/"><span class="label">About</span></a></li>
-</ul></nav>    </section>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <h1 id="-title" class="post-title animated fadeInUp delay-1">Sarahnator&#x27;s research blog</h1>
-                <p class="blog-data animated fadeInUp delay-2"><span class="description">I like robots &amp; this is where I write about them 🤖 </span>
-                </p>
-            </div>
-        </section>
-</header>
-<main id="main" class="main archive animated fadeIn delay-3">
-    <section id="feed" class="feed grid" aria-label="Feed with blog posts">
-        <article id="628aaf9961b86607d8b564f3" aria-labelledby="628aaf9961b86607d8b564f3-title"
-                 class="post has-image" style="background-image: url(https://images.unsplash.com/photo-1543332164-6e82f355badc?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fGhlbGxvfGVufDB8fHx8MTY1MzI2NzEzMw&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000
-                )">
-            <div class="post--top-content">
-            </div>
-            <div class="post--bottom-content">
-                <h2 class="post--title"><a id="628aaf9961b86607d8b564f3-title" href="/in-the-works/">In The Works</a></h2>
-                <span class="post--meta">
-                    <span class="date">Posted by <span class="author">Sarah Etter</span>
-                    <time class="timesince" datetime="2022-05-22T21:48"
-                          title="2022-05-22 21:48">4 hours ago</time>
-                </span>
-                </span>
-            </div>
-        </article></section>
-<nav class="pagination" id="pagination" aria-label="Pagination">
-    <span class="page-number">Page 1 of 1</span>
-</nav></main>
 
-    <footer role="contentinfo" class="footer animated hidden@print fadeIn" id="footer">
-        <div class="colophon">Published with <a href="http://ghost.org" title="Ghost"><i class="ghost-logo"></i></a></div>
-    </footer>
-    <script type="text/javascript" src="/assets/js/Saga.js?v=518866c4c4"></script>
-    
+<body class="home-template">
+
+	<div class="nav-header">
+		<nav class="nav-wrapper" aria-label="Main">
+				<ul>
+		<li class="nav-home active"><a href="https://sarahnator.github.io/"><span>Home</span></a></li>
+		<li class="nav-about"><a href="https://sarahnator.github.io/about/"><span>About</span></a></li>
+</ul>
+
+				<ul class="nav-meta">
+  <li class="nav-twitter">
+    <a aria-label="Twitter" href="https://twitter.com/ghost" title="@ghost" target="_blank">
+      <i class="icon icon-twitter" aria-hidden="true"></i>
+      <span>@ghost</span>
+    </a>
+  </li>
+  <li class="nav-facebook">
+    <a aria-label="Facebook" href="https://www.facebook.com/ghost" title="ghost" target="_blank">
+      <i class="icon icon-facebook" aria-hidden="true"></i>
+      <span>ghost</span>
+    </a>
+  </li>
+  <li class="nav-search">
+    <a title="Search" data-ghost-search>
+      <i class="icon icon-search" aria-hidden="true"></i>
+      <span>Search</span>
+    </a>
+  </li>
+</ul>
+		</nav>
+
+		<div class="nav-wrapper-control">
+			<div class="inner">
+				<a class="nav-menu" role="button"><i class="icon icon-menu" aria-hidden="true"></i>Menu</a>
+				<a class="nav-search" title="Search" role="button" data-ghost-search><i class="icon icon-search" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="nav-close" role="button" aria-label="Close"></div>
+
+	<section class="page-wrapper">
+
+		<header class="blog-header  has-cover">
+	<div class="inner">
+		<div class="box blog-box">
+			<h1 class="blog-name">Sarah Etter&#x27;s research blog</h1>
+			<span class="blog-description">A robotics enthusiast&#x27;s outlet</span>
+		</div>
+		<div class="blog-cover cover">
+			<img
+			srcset="/content/images/size/w320/2022/10/wallpaperflare.com_wallpaper-1.jpg 320w,
+              /content/images/size/w640/2022/10/wallpaperflare.com_wallpaper-1.jpg 640w,
+              /content/images/size/w960/2022/10/wallpaperflare.com_wallpaper-1.jpg 960w,
+              /content/images/size/w1920/2022/10/wallpaperflare.com_wallpaper-1.jpg 1920w"
+      src="/content/images/size/w1920/2022/10/wallpaperflare.com_wallpaper-1.jpg"
+			alt="Sarah Etter&#x27;s research blog" />
+		</div>
+	</div>
+</header>
+
+<div id="index" class="container">
+
+	<main class="content" role="main">
+
+		<div class="extra-pagination">
+	<nav class="pagination" aria-label="Pagination">
+	<div class="inner">
+		<div class="box pagination-box">
+			<span class="pagination-info">Page 1 of 1</span>
+		</div>
+	</div>
+</nav>
+
+</div>
+
+
+<article class="post tag-fuzzy-systems tag-behavior-based-control no-image">
+	<div class="inner">
+		<div class="box post-box">
+			<h2 class="post-title"><a href="/rule-based-fuzzy-systems/">Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off</a></h2>
+			<span class="post-meta">
+				By
+				<a href="/author/sarah/">Sarah Etter</a>
+				in <a class="post-meta-tag" href="/tag/fuzzy-systems/">fuzzy systems</a>
+				on
+				<time datetime="12-10-2022">12 Oct 2022</time>
+			</span>
+			<p class="post-excerpt">A post inspired by Professor Jerry Mendel's Explainable AI for Rule-Based Fuzzy Systems seminar&hellip;</p>
+		</div>
+	</div>
+</article>
+
+
+<article class="post">
+	<div class="inner">
+		<div class="box post-box">
+			<h2 class="post-title"><a href="/in-the-works/">In The Works</a></h2>
+			<span class="post-meta">
+				By
+				<a href="/author/sarah/">Sarah Etter</a>
+				
+				on
+				<time datetime="22-05-2022">22 May 2022</time>
+			</span>
+			<p class="post-excerpt">Hello and welcome to my research blog!&hellip;</p>
+		</div>
+	</div>
+</article>
+
+
+<nav class="pagination" aria-label="Pagination">
+	<div class="inner">
+		<div class="box pagination-box">
+			<span class="pagination-info">Page 1 of 1</span>
+		</div>
+	</div>
+</nav>
+
+
+	</main>
+
+</div>
+
+
+		<div class="nav-footer">
+			<nav class="nav-wrapper" aria-label="Footer">
+				<span class="nav-copy">Sarah Etter&#x27;s research blog &copy; 2022  <a class="nav-rss" title="RSS" href="https://sarahnator.github.io/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+				<ul>
+		<li class="nav-sign-up"><a href="#/portal/"><span>Sign up</span></a></li>
+</ul>
+
+				<span class="nav-credits">Published with <a href="https://ghost.org">Ghost</a> &bull; Theme <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" data-system="System theme" data-dark="Dark theme" data-light="Light theme"><span class="theme-icon"></span><span class="theme-text">System theme</span> </a> </span>
+			</nav>
+		</div>
+
+	</section>
+
+	<script type="text/javascript" src="/assets/js/script.js?v=925cf51ead"></script>
+
+	
+
+	
+
 </body>
 </html>
