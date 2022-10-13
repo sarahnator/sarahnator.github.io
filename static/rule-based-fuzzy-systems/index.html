@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off</title>
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=925cf51ead" />
+
+	<script>
+			var siteUrl = 'https://sarahnator.github.io';
+	</script>
+
+	<script>
+			var localTheme = localStorage.getItem('attila_theme');
+			switch (localTheme) {
+					case 'dark':
+							document.documentElement.classList.add('theme-dark');
+							break;
+					case 'light':
+							document.documentElement.classList.add('theme-light');
+							break;
+					default:
+							break;
+			}
+	</script>
+
+		<script>localStorage.setItem('attila_theme', 'dark');</script>
+		<style>.js-theme {display:none!important;}</style>
+
+
+			<style>
+				.theme-dark:root {
+				  --ghost-accent-color: #7a7a7a;
+				}
+				@media (prefers-color-scheme: dark) {
+				  html:not(.theme-light):root {
+				    --ghost-accent-color: #7a7a7a;
+				  }
+				}
+			</style>
+
+	<meta name="description" content="A post inspired by Professor Jerry Mendel&#x27;s Explainable AI for Rule-Based Fuzzy Systems seminar" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://sarahnator.github.io/rule-based-fuzzy-systems/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Sarah Etter&#x27;s research blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off" />
+    <meta property="og:description" content="A post inspired by Professor Jerry Mendel&#x27;s Explainable AI for Rule-Based Fuzzy Systems seminar" />
+    <meta property="og:url" content="https://sarahnator.github.io/rule-based-fuzzy-systems/" />
+    <meta property="og:image" content="https://sarahnator.github.io/content/images/2022/10/wallpaperflare.com_wallpaper-1.jpg" />
+    <meta property="article:published_time" content="2022-10-12T21:57:19.000Z" />
+    <meta property="article:modified_time" content="2022-10-13T02:21:37.000Z" />
+    <meta property="article:tag" content="fuzzy systems" />
+    <meta property="article:tag" content="behavior-based control" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off" />
+    <meta name="twitter:description" content="A post inspired by Professor Jerry Mendel&#x27;s Explainable AI for Rule-Based Fuzzy Systems seminar" />
+    <meta name="twitter:url" content="https://sarahnator.github.io/rule-based-fuzzy-systems/" />
+    <meta name="twitter:image" content="https://sarahnator.github.io/content/images/2022/10/wallpaperflare.com_wallpaper-1.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Sarah Etter" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="fuzzy systems, behavior-based control" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="900" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Sarah Etter&#x27;s research blog",
+        "url": "https://sarahnator.github.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://sarahnator.github.io/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sarah Etter",
+        "url": "https://sarahnator.github.io/author/sarah/",
+        "sameAs": []
+    },
+    "headline": "Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off",
+    "url": "https://sarahnator.github.io/rule-based-fuzzy-systems/",
+    "datePublished": "2022-10-12T21:57:19.000Z",
+    "dateModified": "2022-10-13T02:21:37.000Z",
+    "keywords": "fuzzy systems, behavior-based control",
+    "description": "A post inspired by Professor Jerry Mendel&#x27;s Explainable AI for Rule-Based Fuzzy Systems seminar",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://sarahnator.github.io/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.48" />
+    <link rel="alternate" type="application/rss+xml" title="Sarah Etter&#x27;s research blog" href="https://sarahnator.github.io/rss/" />
+    <script defer src="https://unpkg.com/@tryghost/portal@~1.22.0/umd/portal.min.js" data-ghost="https://sarahnator.github.io/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="/public/cards.min.js?v=925cf51ead"></script><style>:root {--ghost-accent-color: #232323;}</style>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=925cf51ead">
+</head>
+
+<body class="post-template tag-fuzzy-systems tag-behavior-based-control">
+
+	<div class="nav-header">
+		<nav class="nav-wrapper" aria-label="Main">
+				<ul>
+		<li class="nav-home"><a href="https://sarahnator.github.io/"><span>Home</span></a></li>
+		<li class="nav-about"><a href="https://sarahnator.github.io/about/"><span>About</span></a></li>
+</ul>
+
+				<ul class="nav-meta">
+  <li class="nav-twitter">
+    <a aria-label="Twitter" href="https://twitter.com/ghost" title="@ghost" target="_blank">
+      <i class="icon icon-twitter" aria-hidden="true"></i>
+      <span>@ghost</span>
+    </a>
+  </li>
+  <li class="nav-facebook">
+    <a aria-label="Facebook" href="https://www.facebook.com/ghost" title="ghost" target="_blank">
+      <i class="icon icon-facebook" aria-hidden="true"></i>
+      <span>ghost</span>
+    </a>
+  </li>
+  <li class="nav-search">
+    <a title="Search" data-ghost-search>
+      <i class="icon icon-search" aria-hidden="true"></i>
+      <span>Search</span>
+    </a>
+  </li>
+</ul>
+		</nav>
+
+		<div class="nav-wrapper-control">
+			<div class="inner">
+				<a class="nav-menu" role="button"><i class="icon icon-menu" aria-hidden="true"></i>Menu</a>
+				<a class="nav-search" title="Search" role="button" data-ghost-search><i class="icon icon-search" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="nav-close" role="button" aria-label="Close"></div>
+
+	<section class="page-wrapper">
+
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header class="post-header ">
+	<div class="inner">
+		<span class="post-info">
+			<span class="post-type">Article</span>
+			<span class="post-count">fuzzy systems</span>
+		</span>
+		<h1 class="post-title">Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off</h1>
+		<div class="post-meta">
+			<div class="post-meta-avatars">
+					<figure class="post-meta-avatar avatar">
+					</figure>
+			</div>
+			<h4 class="post-meta-author"><a href="/author/sarah/">Sarah Etter</a></h4>
+			<time datetime="12-10-2022">12 Oct 2022</time> &bull; 4 min read
+		</div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-fuzzy-systems tag-behavior-based-control no-image">
+		<div class="inner">
+
+			<section class="post-content">
+				<p></p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://www.researchgate.net/profile/Vincent-Porto/publication/224605202/figure/fig2/AS:667612262436878@1536182575789/Traditional-crisp-set-and-fuzzy-set-membership-functions.png" class="kg-image" alt="Traditional (crisp) set and fuzzy set membership functions." loading="lazy"><figcaption>Membership functions – boolean versus fuzzy logic. Source: https://www.researchgate.net/figure/Traditional-crisp-set-and-fuzzy-set-membership-functions_fig2_224605202</figcaption></figure><p>Dr. Jerry Mendel’s seminar on <em>Explainable AI (XAI) for Rule-Based Fuzzy Systems</em> brings to light one of the limitations of fuzzy systems: human interpretability. Mendel describes this problem as being similar to asking a human to perform a p-fold correlation among p variables when most people can only visualize a correlation between two variables. Further, since fuzzy systems operate using natural language-based rules, they are difficult to represent mathematically. </p><p>Let's unpack this problem further. For that, we need some context on how fuzzy systems operate.</p><p>To illustrate the difficulty in mathematical analysis or interpretation of fuzzy systems, consider a canonical fuzzy system, which is composed of three stages: fuzzification, rule application, and defuzzification [1][2]. In <em>fuzzification</em>, inputs are converted into values of linguistic variables. Unlike traditional crisp logic in set theory where a characteristic function maps inputs to a two-valued boolean corresponding to set membership or non-membership, fuzzy sets use membership functions to map inputs to degrees of membership in the range [0, 1]. Thus in fuzzy systems, an input can belong to multiple fuzzy sets over the range or <em>universe</em> of a linguistic variable. To give a simple example, if we say that an obstacle is near if it is within 1 meter, then an obstacle at 1.1 meters may have a membership value of 0.8 for the fuzzy set representing <em>near</em>, but a membership value of 0.2 for the fuzzy set representing <em>far</em>, since the possibility of being near is much greater than far. In <em>rule application</em>, we infer consequent linguistic variables from the antecedent linguistic variables generated by fuzzification. An example rule is <em>IF an obstacle is near, THEN go slow. </em>If an input belongs in two antecedent fuzzy sets, the membership value of the consequent linguistic variable is computed using the minimum of the antecedent membership values. In <em>defuzzification</em>, we generate crisp outputs from the system by computing the center of gravity of consequent membership values (COG) [1][2]. Returning back to our original query, as the number of inputs increases, the rules capturing the interaction between inputs increases exponentially (<em>rule explosion</em>), making it difficult for humans to debug or back out the operations contributing to a particular crisp output. Further, as Safiotti points out in [3], due to the compounding interactions between these inputs and the inability to use mathematical analysis to profile and evaluate the fuzzy system, it is unlikely for a method besides empirical testing to determine whether the system outputs the desired values.</p><p>While these are clear limitations that make fuzzy systems difficult to implement, fuzzy logic is well suited to the domain of robotics, specifically to autonomous robots that can be modeled as nonlinear systems. Uncertainty contributing to this nonlinearity manifests itself in the form of sensor noise (<em>measurement</em> <em>noise</em>), motion noise (<em>process noise</em>), and environmental disturbances. The qualitative property of fuzzy logic makes it uniquely suited to these types of problems, where we can improve decision-making in the presence of uncertainty by combining data from several sources in the rule application stage, like the way that a Kalman filter fuses data from multiple sensors for self-localization [3]. Using fuzzy logic we can build a behavior-based robotic controller: first, we transform sensor values into antecedent linguistic variables like proximity to an obstacle or goal (which may have a range of values like very close, close, far, and very far), then apply IF-THEN rules to map the antecedents to one or more consequent behaviors (follow-line, avoid-obstacles, go-to-goal, etc.), which are then defuzzified to output crisp actuator commands executed by the robot [1]. To avoid the high computational cost associated with rule explosion, fuzzy logic control systems typically split the decision-making process into several hierarchical layers, where each layer is a fuzzy logic controller (FLC) responsible for implementing the control logic for a particular behavior [4]. In this control architecture known as subsumption architecture, layers operate both concurrently and independently. A high-level coordination layer (another FLC) arbitrates between the outputs of each FLC layer, either by suppressing (subsuming the commands of higher-up layers), inhibiting (preventing a layer’s output entirely), or weighting the output commands of each layer to converge on a single actuator command [4][5]. Analogous to how the Kalman filter performs “sensor fusion,” fuzzy logic control systems perform “command fusion” through subsumption architecture.</p><p>Though fuzzy logic systems can be an asset for problems with pervasive uncertainty like robotic localization, navigation, and control, it is still a field in its early stages of development. Before the benefits of fuzzy logic can be readily applied to any relevant real-world problem, its limitations of transparency, rule explosion, and requisite domain expertise must be addressed in order to be a viable alternative to classical methods. This is what researchers like Professor Mendel are hard at work for:  developing the formal tools needed to analyze, implement, and advance the emerging field of fuzzy logic systems.<br> </p><p><br>References</p><p>[1] Ben-Ari, M., &amp; Mondada, F. (2017). <em>Elements of robotics</em>. Springer Nature.</p><p>[2] “Fuzzy expert systems”, lecture outline, <em>SlidePlayer</em>. [Online]. Available: https://slideplayer.com/slide/4531230/</p><p>[3] Saffiotti, A. “The uses of fuzzy logic in autonomous robot navigation.” <em>Soft Computing</em> <strong>1, </strong>180–197 (1997). DOI: https://doi.org/10.1007/s005000050020</p><p>[4]  Hagras, H. A. "A hierarchical type-2 fuzzy logic control architecture for autonomous mobile robots." <em>IEEE Transactions on Fuzzy systems</em> 12, no. 4 (2004): 524-539.</p><p>[5] Arkin, R. C., &amp; Arkin, R. C. (1998). <em>Behavior-based robotics</em>, chapter 4. MIT press.<br><br></p>
+			</section>
+
+			<section class="post-footer">
+
+				<div class="post-share">
+					<span class="post-info-label">Share</span>
+					<a title="Twitter" aria-label="Twitter" class="twitter" href="https://twitter.com/share?text=Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off&url=https://sarahnator.github.io/rule-based-fuzzy-systems/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="icon icon-twitter" aria-hidden="true"></i>
+					</a>
+					<a title="Facebook" aria-label="Facebook" class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://sarahnator.github.io/rule-based-fuzzy-systems/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="icon icon-facebook" aria-hidden="true"></i>
+					</a>
+					<a title="LinkedIn" aria-label="LinkedIn" class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://sarahnator.github.io/rule-based-fuzzy-systems//&amp;title=Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off" onclick="window.open(this.href, 'linkedin-share', 'width=930,height=720');return false;">
+						<i class="icon icon-linkedin" aria-hidden="true"></i>
+					</a>
+					<a title="Email" aria-label="Email" class="email" href="mailto:?subject=Rule-based fuzzy systems: decision-making under uncertainty and the interpretability trade-off&amp;body=https://sarahnator.github.io/rule-based-fuzzy-systems/">
+						<i class="icon icon-mail" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<aside class="post-tags">
+					<span class="post-info-label">Topic</span>
+					<a href="/tag/fuzzy-systems/">fuzzy systems</a> <a href="/tag/behavior-based-control/">behavior-based control</a>
+				</aside>
+
+			</section>
+
+
+
+
+			<aside class="post-nav">
+
+
+					<a class="post-nav-prev" href="/in-the-works/">
+						<section class="post-nav-teaser">
+							<i class="icon icon-arrow-right" aria-label="Previous post"></i>
+							<h2 class="post-nav-title">In The Works</h2>
+							<p class="post-nav-excerpt">Hello and welcome to my research blog!&hellip;</p>
+							<p class="post-nav-meta"><time datetime="22-05-2022">22 May 2022</time></p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+		</div>
+	</article>
+</main>
+
+
+
+
+		<div class="nav-footer">
+			<nav class="nav-wrapper" aria-label="Footer">
+				<span class="nav-copy">Sarah Etter&#x27;s research blog &copy; 2022  <a class="nav-rss" title="RSS" href="https://sarahnator.github.io/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+				<ul>
+		<li class="nav-sign-up"><a href="#/portal/"><span>Sign up</span></a></li>
+</ul>
+
+				<span class="nav-credits">Published with <a href="https://ghost.org">Ghost</a> &bull; Theme <a href="https://github.com/zutrinken/attila">Attila</a> &bull; <a class="menu-item js-theme" href="#" data-system="System theme" data-dark="Dark theme" data-light="Light theme"><span class="theme-icon"></span><span class="theme-text">System theme</span> </a> </span>
+			</nav>
+		</div>
+
+	</section>
+
+	<script type="text/javascript" src="/assets/js/script.js?v=925cf51ead"></script>
+
+	<script>
+  $(document).ready(function () {
+		var viewport = $(window);
+		var post = $('.post-content');
+		// Responsive videos with fitVids
+    post.fitVids();
+		// Format code blocks and add line numbers
+		function codestyling() {
+	    $('pre code').each(function(i, e) {
+				// Code highlight
+	      hljs.highlightElement(e);
+	      // No lines for plain text blocks
+	      if (!$(this).hasClass('language-text')) {
+	        var code = $(this);
+					// Calculate amount of lines
+	        var lines = code.html().split(/\n(?!$)/g).length;
+	        var numbers = [];
+	        if (lines > 1) {
+	          lines++;
+	        }
+	        for (i = 1; i < lines; i++) {
+	          numbers += '<span class="line" aria-hidden="true">' + i + '</span>';
+	        }
+	        code.parent().append('<div class="lines">' + numbers + '</div>');
+	      }
+	    });
+	  }
+	  codestyling();
+		// Reading progress bar on window top
+	  function readingProgress() {
+			var postBottom = post.offset().top + post.height();
+			var viewportHeight = viewport.height();
+      var progress = 100 - (((postBottom - (viewport.scrollTop() + viewportHeight) + viewportHeight / 3) / (postBottom - viewportHeight + viewportHeight / 3)) * 100);
+      $('.progress-bar').css('width', progress + '%');
+      (progress > 100) ? $('.progress-container').addClass('complete'): $('.progress-container').removeClass('complete');
+	  }
+	  readingProgress();
+		// Trigger reading progress
+	  viewport.on({
+	    'scroll': function() {
+	      readingProgress();
+	    },
+	    'resize': function() {
+	      readingProgress();
+	    },
+	    'orientationchange': function() {
+	      readingProgress();
+	    }
+	  });
+
+  });
+</script>
+
+
+	
+
+</body>
+</html>
