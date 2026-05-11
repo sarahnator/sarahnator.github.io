@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Layered MPM">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#8bd3ff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#d6ff8b" stop-opacity="0.55"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="26"/></filter>
+  </defs>
+  <rect width="1200" height="750" fill="#151922"/>
+  <circle cx="260" cy="180" r="170" fill="#8bd3ff" opacity="0.35" filter="url(#blur)"/>
+  <circle cx="900" cy="520" r="230" fill="#d6ff8b" opacity="0.28" filter="url(#blur)"/>
+  <path d="M0 520 C 170 420, 300 650, 520 520 S 850 390, 1200 500 L1200 750 L0 750 Z" fill="url(#g)" opacity="0.72"/>
+  <path d="M0 590 C 210 520, 380 710, 620 600 S 930 490, 1200 590 L1200 750 L0 750 Z" fill="#8bd3ff" opacity="0.25"/>
+  <text x="70" y="105" fill="#eef2f8" font-size="54" font-family="Inter, Arial, sans-serif" font-weight="800">Layered MPM</text>
+  <text x="72" y="165" fill="#aab3c2" font-size="28" font-family="Inter, Arial, sans-serif">Replace this SVG with a project image, GIF, or video.</text>
+</svg>
